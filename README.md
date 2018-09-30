@@ -23,3 +23,7 @@
 - v-if/v-show 条件によって要素の表示/非表示切り替え
 - v-bind 動的に属性値を割り当てる
 - v-for 繰り返し表示
+
+## 参考サイト
+
+- [これから始めるVue.js 2.0](https://app.codegrid.net/series/2016-vue)
