@@ -9,6 +9,21 @@
 - [vue-router](https://github.com/vuejs/vue-router) ルーティングライブラリ
 - [vue-validator](https://github.com/kazupon/vue-validator) フォームバリデーションライブラリ
 
+### vue-routerの指定
+
+```javascript:main.js
+import VueRouter from 'vue-router'
+import routes from './routes'
+
+Vue.use(VueRouter) // VueRouterを使うことをVueに知らせる
+
+const router = new VueRouter(routes) // ルーターインスタンスの作成
+
+new Vue({
+  router // router にルーターインスタンスを指定
+});
+```
+
 ## オプション
 
 - el VueインスタンスとDOM要素を紐付ける
@@ -72,3 +87,4 @@
 
 - [これから始める
 Vue.js 2.0](https://app.codegrid.net/series/2016-vue)
+- [Vue Router](https://router.vuejs.org/ja/)
