@@ -24,6 +24,51 @@
 - v-bind 動的に属性値を割り当てる
 - v-for 繰り返し表示
 
+## .vueファイルとは
+
+.vueファイルを構成する3つの要素
+
+- template コンポーネントのHTMLを記述
+- style コンポーネントのCSSを記述
+- script コンポーネントのJavaScriptを記述(vue-loaderがBabelでトランスパイル)
+
+```javascript
+<template>
+  <div class="my-component">
+    <button @click="onClick">{{message}}</button>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+  .my-component {
+    color: tomato;
+    button {
+      border: 1px solid #000;
+    }
+  }
+</style>
+
+<script>
+  export default {
+    data() {
+      return {
+        message: 'Hello!!'
+      }
+    },
+    methods: {
+      onClick() {
+        console.log(this.message)
+      }
+    }
+  }
+</script>
+```
+
+## 便利なツール
+
+- [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd/related) DevToolsでアプリケーションやコンポーネントの状態を確認
+
 ## 参考サイト
 
-- [これから始めるVue.js 2.0](https://app.codegrid.net/series/2016-vue)
+- [これから始める
+Vue.js 2.0](https://app.codegrid.net/series/2016-vue)
