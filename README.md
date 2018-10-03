@@ -42,6 +42,75 @@ new Vue({
 - v-bind 動的に属性値を割り当てる
 - v-for 繰り返し表示
 
+## 状態管理(State管理)
+
+中央集権的な状態管理のパターンはStoreパターンと呼ばれ、次の制約を与える。
+
+- 状態は単一のStoreで管理する
+- 状態はActionによってのみ変更される
+
+### stateを管理するStore
+
+```javascript:store.js
+const store = {
+    debug: true,
+    state: {
+        message: 'Hello World!',
+    },
+    setMessageAction(newValue) {
+        this.debug && console.log(`setMessageAction triggerrd with ${newValue}`);
+        this.state.message = newValue;
+    },
+    clearMessageAction() {
+        this.debug && console.log('clearMessageAction triggered');
+        this.state.message = '';
+    }
+}
+```
+
+### Storeからstateを読み込む
+
+```javascript: app.js
+const vm1 = new Vue({
+    el: '#vm1',
+    template: `
+        <div>
+            <input :value="sharedState.message" @input="updateMessage">
+        </div>
+    `,
+    data() {
+        return {
+            shareState: store.state,
+        }
+    },
+    methods: {
+        updateMessage(e) {
+            store.setMessageAction(e.target.value);
+        }
+    }
+});
+
+const vm2 = new Vue({
+    el: '#vm2',
+    template: `
+        <div>
+            <p>{{sharedState.message}}</p>
+            <button @click="clear">clear</button>
+        </div>
+    `,
+    data() {
+        return {
+            sharedState: store.state,     
+        }
+    },
+    methods: {
+        clear() {
+            store.clearMessageAction();
+        }
+    }
+});
+```
+
 ## .vueファイルとは
 
 .vueファイルを構成する3つの要素
