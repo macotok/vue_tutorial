@@ -25,7 +25,7 @@
     },
     computed: {
       hasMemo() {
-        return this.memos && this.memos.length !== 0;
+        return this.filteredMemos && this.filteredMemos.length !== 0;
       },
       filteredMemos() {
         let memos = this.memos.concat();
@@ -50,7 +50,7 @@
       }
     },
     components: {
-      'list-item': ListItem,
+      ListItem,
     }
   }
 </script>

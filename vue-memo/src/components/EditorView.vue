@@ -20,7 +20,7 @@
     </div>
     <div>
       <label>タグ:</label>
-      <input v-mode="input.tags" placeholder="空白区切りで指定">
+      <input v-model="input.tags" placeholder="空白区切りで指定">
     </div>
     <div>
       <button @click="cancel" v-if="memo">戻る</button>
@@ -32,7 +32,7 @@
 <script>
   export default {
     props: {
-      memo: Object
+      memo: Object,
     },
     data() {
       return {
@@ -53,14 +53,14 @@
         const data = Object.assign({}, this.input, {tags: this.tagsArr});
         this.$emit('add', data);
       },
+      cancel() {
+        this.$emit('cancel');
+      },
       setMemo() {
         if (this.memo) {
           Object.assign(this.input, this.memo, {tags: this.memo.tags.join(' ')})
         }
       },
-      cancel() {
-        this.$emit('cancel');
-      }
     },
     created() {
       this.setMemo();

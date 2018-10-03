@@ -3,8 +3,8 @@
     <list-view
       :memos="memos"
       @remove="remove"
-      :count="count"
-      :sort="sort"
+      :count="3"
+      sort="latest"
     >
     </list-view>
     <router-link :to="{name: 'items'}">すべて見る</router-link>
@@ -14,12 +14,6 @@
 <script>
   import ListView from '../components/ListView';
   export default {
-    data() {
-      return {
-        count: 3,
-        sort: 'latest'
-      }
-    },
     props: {
       memos: Array,
     },

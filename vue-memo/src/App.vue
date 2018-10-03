@@ -22,6 +22,7 @@
   <div id="app">
     <nav-link></nav-link>
     <router-view
+      class="contents"
       :memos="memos"
       @add="add"
       @remove="remove"
@@ -50,6 +51,18 @@
             text: 'テスト2',
             date: '18-10-01',
             tags: ['タグ2', 'タグ3']
+          },
+          {
+            id: 3,
+            text: 'テスト3',
+            date: '18-10-03',
+            tags: ['タグ4', 'タグ5']
+          },
+          {
+            id: 4,
+            text: 'テスト4',
+            date: '18-10-05',
+            tags: ['タグ6', 'タグ7']
           }
         ]
       }
@@ -85,7 +98,3 @@
     }
   }
 </script>
-
-<style>
-  @import '../static/styles.css';
-</style>

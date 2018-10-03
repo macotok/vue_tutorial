@@ -1,4 +1,4 @@
-<style lang="scss">
+<style scoped lang="scss">
   .layout-items {
     display: flex;
     &-left {
