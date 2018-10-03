@@ -25,6 +25,8 @@
       :memos="memos"
       @add="add"
       @remove="remove"
+      :count="3"
+      @update="update"
     >
     </router-view>
   </div>
@@ -53,7 +55,7 @@
       }
     },
     computed: {
-      nexrId() {
+      nextId() {
         return this.memos.reduce((id, memo) => {
           return id < memo.id ? memo.id : id;
         }, 0) + 1;
@@ -69,6 +71,13 @@
           return memo.id === id;
         });
         this.memos.splice(index, 1);
+      },
+      update(data) {
+        const id = parseInt(data.id, 10);
+        const index = this.memos.findIndex((memo) => {
+          return memo.id === id;
+        });
+        this.memos.splice(index, 1, data)
       }
     },
     components: {

@@ -30,6 +30,9 @@ new Vue({
 - data stateを持たせる(stateはtemplateから{{}}で参照)
 - methods Vueインスタンスにメソッドを追加
 - computed なんからの処理を加えた値を表示
+- created Vueインスタンスが作成されたあと、要素とは紐付いていないタイミング（$elがundefined）で実行したいとき
+- mounted 要素に紐付けられたあとのタイミングで、何らかの処理を実行したいとき
+- watch 値の変更を監視して処理を実行
 
 ## ディレクティブ
 
