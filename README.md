@@ -120,6 +120,30 @@ Storeを利用する際のルール
 - src/componentsは$emit()を実行して、親コンポーネントにイベントを伝える
 - Actionはsrc/pageのコンポーネントが実行する
 
+### Vuex
+
+状態管理ライブラリ
+
+```terminal
+$ npm install --save vuex
+```
+
+VuexのStoreは4つのプロパティで構成される。
+
+```javascript
+const store = new Vuex.Store({
+  state,
+  mutations,
+  actions,
+  getters
+});
+```
+
+- state アプリケーションの状態
+- mutations stateを変更する唯一の存在。mutationsに定義した関数はcommit()から呼び出す
+- actions commit()を使ってmutationsを呼び出す関数を定義。dispatchでactionを呼び出す
+- getters Store用の算出プロパティ(computedのようなもの)
+
 ## .vueファイルとは
 
 .vueファイルを構成する3つの要素
