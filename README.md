@@ -193,3 +193,4 @@ const store = new Vuex.Store({
 - [これから始める
 Vue.js 2.0](https://app.codegrid.net/series/2016-vue)
 - [Vue Router](https://router.vuejs.org/ja/)
+- [ライトに使うVue.js](https://app.codegrid.net/series/2017-light-vue)
