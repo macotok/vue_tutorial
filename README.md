@@ -111,6 +111,15 @@ const vm2 = new Vue({
 });
 ```
 
+Storeを利用する際のルール
+
+- src/pageのコンポーネントでだけStoreをimportする
+- src/componentsのコンポーネントはStoreのstateを参照しない
+- src/componentsの各コンポーネントは、レンダリングに必要なデータをpropsで受け取る
+- src/componentsのコンポーネントはActionを実行しない
+- src/componentsは$emit()を実行して、親コンポーネントにイベントを伝える
+- Actionはsrc/pageのコンポーネントが実行する
+
 ## .vueファイルとは
 
 .vueファイルを構成する3つの要素

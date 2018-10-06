@@ -1,10 +1,10 @@
 <template>
   <div>
     <list-view
-      :memos="memos"
+      :memos="sharedState.memos"
       @remove="remove"
-      :count="3"
-      sort="latest"
+      :count="privateState.count"
+      :sort="privateState.sort"
     >
     </list-view>
     <router-link :to="{name: 'items'}">すべて見る</router-link>
@@ -13,13 +13,20 @@
 
 <script>
   import ListView from '../components/ListView';
+  import store from '../store';
   export default {
-    props: {
-      memos: Array,
+    data() {
+      return {
+        sharedState: store.state,
+        privateState: {
+          count: 3,
+          sort: 'latest'
+        }
+      }
     },
     methods: {
       remove(id) {
-        this.$emit('remove', id);
+        store.actions.removeMemo(id);
       }
     },
     components: {
